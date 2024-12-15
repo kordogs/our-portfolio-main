@@ -108,14 +108,17 @@ export const Header = () => {
         Crafting <br /> Customized Solutions
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
-        Welcome to my Full Stack Web Development services! I&apos;m Julian, a
-        seasoned developer proficient in HTML, CSS, JavaScript, React, React
-        Native, Bootstrap, Tailwind, Nodejs, Express is, MongoDB, and PHP. With
-        3 years of experience, I offer customized solutions for your web
-        development needs, ensuring responsive designs, seamless database
-        integration, and scalable applications. My commitment to quality,
-        transparent communication, and client satisfaction sets me apart.
-        Let&apos;s collaborate to bring your web project to life
+        Welcome to our Full Stack Web Development services! We’re Julian and
+        Moonbeam, a dynamic duo of seasoned developers passionate about building
+        exceptional web solutions. Together, we bring a wealth of expertise in
+        technologies like HTML, CSS, JavaScript, React, React Native, Bootstrap,
+        Tailwind, Node.js, Express.js, MongoDB, and PHP. With a combined 6 years
+        of experience, we specialize in crafting responsive designs, seamless
+        database integration, and scalable applications tailored to meet your
+        unique needs. What sets us apart is our shared commitment to delivering
+        quality results, maintaining transparent communication, and ensuring
+        complete client satisfaction at every step. Ready to collaborate? Let’s
+        bring your web project to life and make your vision a reality!
       </p>
     </div>
   );

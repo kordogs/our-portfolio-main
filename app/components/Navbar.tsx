@@ -11,12 +11,6 @@ export default function Navbar() {
           <a href="/projects" className="font-bold">
             Projects
           </a>
-          <a href="products" className="font-bold">
-            Products
-          </a>
-          <a href="offers" className="font-bold">
-            Offers
-          </a>
         </ul>
       </div>
       <div className="flex gap-2">

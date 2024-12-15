@@ -8,6 +8,7 @@ interface CardProps {
   description: string;
   image: string;
   onDelete?: () => void;
+  onUpdate?: () => void;
 }
 
 export default function Card({
@@ -15,18 +16,19 @@ export default function Card({
   description,
   image,
   onDelete,
+  onUpdate,
 }: CardProps) {
   return (
-    <div className="card rounded-lg bg-gray-800 bg-opacity-50 w-[300px]">
+    <div className="skeleton card rounded-lg bg-gray-800 bg-opacity-50 w-full">
       <span className="absolute right-1 top-1 text-white badge">
-        <DropdownWrapper onDelete={onDelete}>
+        <DropdownWrapper onDelete={onDelete} onUpdate={onUpdate}>
           <EllipsisIcon />
         </DropdownWrapper>
       </span>
       <Image
         src={image ? image : "https://via.placeholder.com/300"}
         height={300}
-        width={300}
+        width={400}
         alt="thumbnail"
         className=" rounded-t-lg"
       />

@@ -3,9 +3,11 @@ import React, { ReactNode } from "react";
 export default function DropdownWrapper({
   children,
   onDelete,
+  onUpdate,
 }: {
   children: ReactNode;
   onDelete?: () => void;
+  onUpdate?: () => void;
 }) {
   return (
     <div className="dropdown">
@@ -21,7 +23,7 @@ export default function DropdownWrapper({
         className="dropdown-content menu bg-base-100 rounded-box z-[1] p-2 shadow"
       >
         <li>
-          <a>Update</a>
+          <a onClick={onUpdate}>Update</a>
         </li>
         <li>
           <a onClick={onDelete}>Delete</a>

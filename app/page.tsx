@@ -29,7 +29,7 @@ export default function Home() {
         <CustomAnimatedTooltip
           name="Marc Garcera"
           position="FrontEnd Web Developer"
-          image="/462555367_846979830706439_5789797204698672644_n.png"
+          image="/garcera_3.png"
         />
       </div>
 

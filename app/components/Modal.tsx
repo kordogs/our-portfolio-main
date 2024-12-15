@@ -11,11 +11,11 @@ export default function Modal({ onSuccess }: { onSuccess: () => void }) {
   const [imageToUpload, setImageToUpload] = useState(null);
 
   // Handle file input change
-  const handleImageChange = (e: { target: { files: any[] } }) => {
-    const file = e.target.files[0]; // Get the first selected file
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
     if (file) {
-      setImage(URL.createObjectURL(file) as any); // Create a URL for the selected file
-      setImageToUpload(file);
+      setImage(URL.createObjectURL(file) as any);
+      setImageToUpload(file as any);
     } else {
       setImage(null);
     }
@@ -51,7 +51,8 @@ export default function Modal({ onSuccess }: { onSuccess: () => void }) {
 
       console.log(data);
       onSuccess();
-      document.getElementById("my_modal_1").close();
+      const modal = document.getElementById("my_modal_1") as HTMLDialogElement;
+      modal?.close();
     } catch (error) {
       console.log(error);
     } finally {
@@ -66,8 +67,13 @@ export default function Modal({ onSuccess }: { onSuccess: () => void }) {
   return (
     <>
       <div
-        className="card rounded-lg bg-gray-800 bg-opacity-50 w-[300px] pt-2 flex items-center justify-center cursor-pointer min-h-56"
-        onClick={() => document.getElementById("my_modal_1").showModal()}
+        className="card skeleton rounded-lg bg-gray-800 bg-opacity-50 w-full pt-2 flex items-center justify-center cursor-pointer min-h-56"
+        onClick={() => {
+          const modal = document.getElementById(
+            "my_modal_1"
+          ) as HTMLDialogElement;
+          modal?.showModal();
+        }}
       >
         <Plus className="w-10 h-10" color="gray" />
       </div>
@@ -128,7 +134,12 @@ export default function Modal({ onSuccess }: { onSuccess: () => void }) {
               </button>
               <button
                 className="btn"
-                onClick={() => document.getElementById("my_modal_1").close()}
+                onClick={() => {
+                  const modal = document.getElementById(
+                    "my_modal_1"
+                  ) as HTMLDialogElement;
+                  modal?.close();
+                }}
               >
                 Close
               </button>

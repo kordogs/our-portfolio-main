@@ -3,8 +3,8 @@
 import { useCallback, useEffect, useState } from "react";
 import Card from "../components/Card";
 import { supabase } from "../supabase/createClient";
-import { Plus } from "lucide-react";
 import Modal from "../components/Modal";
+import ModalUpdate from "../components/ModalUpdate";
 
 interface Project {
   id: number;
@@ -15,7 +15,8 @@ interface Project {
 
 export default function Page() {
   const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [idToUpdate, setIdToUpdate] = useState<number | undefined>(undefined);
   const listProjects = useCallback(async () => {
     setLoading(true);
     try {
@@ -58,9 +59,16 @@ export default function Page() {
     listProjects();
   }, [listProjects]);
 
+  function handleOnUpdate(id: number) {
+    const modal = document.getElementById("my_modal_2") as HTMLDialogElement;
+    modal.showModal();
+    setIdToUpdate(id);
+  }
+
   return (
     <div className="h-screen">
       <div className="px-24 grid gap-2 lg:grid-cols-4 grid-cols-2">
+        {loading ? <div className="skeleton h-full w-full min-h-48"></div> : ""}
         {projects?.map((project, index) => (
           <Card
             key={index}
@@ -71,9 +79,11 @@ export default function Page() {
               project?.image_url
             }
             onDelete={() => deleteProject(project?.id)}
+            onUpdate={() => handleOnUpdate(project?.id)}
           />
         ))}
         <Modal onSuccess={listProjects} />
+        <ModalUpdate id={idToUpdate} onSuccess={listProjects} />
       </div>
     </div>
   );
