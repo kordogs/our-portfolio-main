@@ -36,8 +36,14 @@ export default function Card({
         <h1 className=" text-2xl font-bold mb-2">
           {title ? title : "No title"}
         </h1>
-        <span className="text-xs">
-          {description ? description : "No description"}
+        <span
+          className="text-xs text-start tooltip tooltip-bottom"
+          data-tip={description}
+        >
+          {description
+            ? description.split(" ").slice(0, 50).join(" ") +
+              (description.split(" ").length > 50 ? "..." : "")
+            : "No description"}
         </span>
       </div>
     </div>
