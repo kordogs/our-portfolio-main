@@ -30,7 +30,7 @@ export default function Card({
         height={300}
         width={400}
         alt="thumbnail"
-        className=" rounded-t-lg"
+        className=" rounded-t-lg w-full"
       />
       <div className="p-5">
         <h1 className=" text-2xl font-bold mb-2">
